@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Berry cat">
+  <rect x="16" y="18" width="96" height="92" rx="28" fill="#fff" stroke="#6b3f25" stroke-width="6"/>
+  <path d="M36 44 L26 30 L46 36 Z" fill="#fff7ed" stroke="#6b3f25" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M92 44 L102 30 L82 36 Z" fill="#fff7ed" stroke="#6b3f25" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="52" cy="66" r="6" fill="#3a2a24"/>
+  <circle cx="76" cy="66" r="6" fill="#3a2a24"/>
+  <path d="M58 78 Q64 86 70 78" fill="none" stroke="#3a2a24" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="46" cy="78" r="6" fill="#f2c6d0" opacity="0.8"/>
+  <circle cx="82" cy="78" r="6" fill="#f2c6d0" opacity="0.8"/>
+  <path d="M64 34c0 8 6 14 14 14 8 0 14-6 14-14" fill="#cfeecb" stroke="#6b3f25" stroke-width="4" stroke-linecap="round"/>
+  <path d="M50 36c2 6 8 10 14 10" fill="none" stroke="#6b3f25" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="88" cy="40" r="5" fill="#ff5a7a" opacity="0.85"/>
+</svg>

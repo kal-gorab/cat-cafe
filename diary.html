@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cat Café Diary · Diary</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar__brand">
+          <img class="topbar__logo" src="assets/cat-avatar.svg" alt="Cat avatar" />
+          <div class="topbar__titles">
+            <h1 class="topbar__title" data-i18n="appTitle">مفكرة مقهى القطط</h1>
+            <p class="topbar__subtitle" data-i18n="appSubtitle">دفتر لطيف للذكريات والمزاج… بهدوء وكيوت.</p>
+          </div>
+        </div>
+
+        <div class="topbar__actions">
+          <button class="btn btn--ghost" id="langToggle" type="button" aria-label="Toggle language">
+            AR / EN
+          </button>
+        </div>
+      </header>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__item" href="index.html">
+          <span class="nav__emoji">🏠</span>
+          <span class="nav__label" data-i18n="navHome">Home</span>
+        </a>
+        <a class="nav__item" href="diary.html" aria-current="page">
+          <span class="nav__emoji">📖</span>
+          <span class="nav__label" data-i18n="navDiary">Diary</span>
+        </a>
+        <a class="nav__item" href="cats.html">
+          <span class="nav__emoji">🐱</span>
+          <span class="nav__label" data-i18n="navCats">My Cats</span>
+        </a>
+        <a class="nav__item" href="contact.html">
+          <span class="nav__emoji">💌</span>
+          <span class="nav__label" data-i18n="navContact">Contact</span>
+        </a>
+      </nav>
+
+      <main class="content">
+        <article class="card card--profile">
+          <div class="profile profile--auth" id="authPanel">
+            <h3 class="card__title" data-i18n="accountTitle">الحساب</h3>
+            <p class="card__text" data-i18n="accountDesc">سجّلي/سجّل عشان تختار/ين الأفاتار والمزاج وتضيف/ين ذكرياتك.</p>
+
+            <div class="form">
+              <label class="field">
+                <span class="field__label" data-i18n="usernameLabel">اسم المستخدم</span>
+                <input class="field__input" id="authUsername" type="text" inputmode="text" autocomplete="username" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-i18n="passcodeLabel">رمز الدخول</span>
+                <input class="field__input" id="authPasscode" type="password" inputmode="numeric" autocomplete="current-password" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-i18n="moodLabel">اختيار المزاج</span>
+                <select class="field__input" id="authMood"></select>
+                <span class="field__hint" data-i18n="moodHint">مهم: مزاج الحساب يختاره صاحب الحساب.</span>
+              </label>
+
+              <div class="field">
+                <div class="field__label" data-i18n="avatarLabel">اختيار الأفاتار</div>
+                <div class="avatarPicker" id="avatarPicker" role="radiogroup" aria-label="Choose avatar"></div>
+                <label class="upload">
+                  <span class="upload__label" data-i18n="uploadAvatar">أو ارفع صورة من جهازك</span>
+                  <input id="avatarUpload" type="file" accept="image/*" />
+                </label>
+              </div>
+
+              <div class="actions">
+                <button class="btn btn--primary" id="registerBtn" type="button" data-i18n="registerBtn">إنشاء حساب</button>
+                <button class="btn btn--ghost btn--ghostOnLight" id="loginBtn" type="button" data-i18n="loginBtn">تسجيل دخول</button>
+              </div>
+
+              <div class="form__msg" id="authMsg" aria-live="polite"></div>
+              <p class="muted" data-i18n="localOnlyHint">(ملاحظة: الحساب محفوظ على نفس الجهاز فقط)</p>
+            </div>
+          </div>
+
+          <div class="profile" id="profilePanel" hidden>
+            <img class="profile__avatar" id="profileAvatar" src="assets/cat-avatar.svg" alt="Avatar" />
+            <div class="profile__name" id="profileName"></div>
+
+            <div class="profile__status">
+              <div class="badge" id="weeklyStatusBadge">
+                <img class="badge__icon" src="assets/paw.svg" alt="Paw" />
+                <span class="badge__text" id="weeklyStatusText"></span>
+              </div>
+              <div class="muted" id="weeklyStatusHint" data-i18n="weeklyHint">(يتغير تلقائيًا كل أسبوع)</div>
+            </div>
+
+            <label class="field field--inline">
+              <span class="field__label" data-i18n="moodLabel">اختيار المزاج</span>
+              <select class="field__input" id="profileMood"></select>
+            </label>
+
+            <label class="field field--inline">
+              <span class="field__label" data-i18n="changeAvatarLabel">تغيير الأفاتار</span>
+              <select class="field__input" id="profileAvatarSelect"></select>
+              <span class="field__hint" data-i18n="avatarHint">(تقدري/تقدر تغيّره بأي وقت)</span>
+            </label>
+
+            <label class="upload">
+              <span class="upload__label" data-i18n="uploadAvatar">أو ارفع صورة من جهازك</span>
+              <input id="profileAvatarUpload" type="file" accept="image/*" />
+            </label>
+
+            <div class="profile__meta">
+              <div class="mini">
+                <div class="mini__label" data-i18n="metaMoodToday">مزاج اليوم</div>
+                <div class="mini__value" id="moodToday"></div>
+              </div>
+              <div class="mini">
+                <div class="mini__label" data-i18n="metaLastUpdate">آخر تحديث</div>
+                <div class="mini__value" id="lastUpdate"></div>
+              </div>
+            </div>
+
+            <div class="actions actions--center">
+              <button class="btn btn--ghost btn--ghostOnLight" id="logoutBtn" type="button" data-i18n="logoutBtn">تسجيل خروج</button>
+            </div>
+          </div>
+        </article>
+
+        <section class="section">
+          <div class="section__header">
+            <h2 class="section__title" data-i18n="diaryTitle">Diary</h2>
+            <p class="section__desc" data-i18n="diaryDesc">مربعات صغيرة… عشان اليوم ما يحتاج يطول.</p>
+          </div>
+
+          <div class="notes">
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteTodayTitle">ملاحظة اليوم</h3>
+                <div class="note__date" data-i18n="noteTodayDate">08 مارس 2026</div>
+              </div>
+              <p class="note__text" data-i18n="noteTodayText">اليوم كان هادي… وأنا أرتّب أفكاري خطوة خطوة.</p>
+            </article>
+
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteMoodTitle">مزاجي</h3>
+                <div class="note__date">☕</div>
+              </div>
+              <p class="note__text" data-i18n="noteMoodText">هدوء + شيء لطيف + رغبة بسيطة بالتعلّم.</p>
+            </article>
+
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteQuoteTitle">اقتباس</h3>
+                <div class="note__date">“ ”</div>
+              </div>
+              <p class="note__text" data-i18n="noteQuoteText">Small steps still count.</p>
+            </article>
+
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteGoalTitle">هدف الأسبوع</h3>
+                <div class="note__date">✨</div>
+              </div>
+              <p class="note__text" data-i18n="noteGoalText">أخلص جزء صغير من مشروعي + أتعلم شي واحد جديد.</p>
+            </article>
+
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteWinTitle">إنجاز صغير</h3>
+                <div class="note__date">🍪</div>
+              </div>
+              <p class="note__text" data-i18n="noteWinText">رتّبت الصفحة وصارت كيوت ومنظمة.</p>
+            </article>
+
+            <article class="note">
+              <div class="note__header">
+                <h3 class="note__title" data-i18n="noteJarTitle">برطمان الذكريات</h3>
+                <div class="note__date">🐾</div>
+              </div>
+              <p class="note__text" data-i18n="noteJarText">اكتبي ذكرى واحدة اليوم… حتى لو سطر واحد.</p>
+            </article>
+          </div>
+
+          <div class="section__sub">
+            <h3 class="section__subtitle" data-i18n="memoriesTitle">ذكرياتي</h3>
+            <p class="section__desc" id="memoriesHint" data-i18n="memoriesHint">سجّل/ي دخول عشان تضيف/ين ذكرياتك.</p>
+          </div>
+
+          <div class="card" id="memoryComposer" hidden>
+            <div class="card__top">
+              <h3 class="card__title" data-i18n="addMemoryTitle">إضافة ذكرى</h3>
+              <span class="muted" data-i18n="addMemoryTiny">قصيرة ولطيفة</span>
+            </div>
+
+            <div class="form">
+              <label class="field">
+                <span class="field__label" data-i18n="memoryTitleLabel">العنوان</span>
+                <input class="field__input" id="memoryTitle" type="text" data-i18n-placeholder="memoryTitlePh" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-i18n="memoryTextLabel">الذكرى</span>
+                <textarea class="field__input field__textarea" id="memoryText" rows="4" data-i18n-placeholder="memoryTextPh"></textarea>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-i18n="memoryMoodLabel">المزاج</span>
+                <select class="field__input" id="memoryMood"></select>
+              </label>
+
+              <div class="actions">
+                <button class="btn btn--primary" id="addMemoryBtn" type="button" data-i18n="addMemoryBtn">إضافة</button>
+                <div class="form__msg" id="memoryMsg" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="memories" id="memoriesList"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__left">© 2026</div>
+        <div class="footer__right" data-i18n="footerMade">Made with ☕ + soft memories</div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

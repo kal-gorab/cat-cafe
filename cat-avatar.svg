@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Cute cat avatar">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="1" stop-color="#ffe0ea"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="56" fill="url(#g)" stroke="#6b3f25" stroke-width="6"/>
+  <path d="M34 44 L24 28 L42 34 Z" fill="#fff7ed" stroke="#6b3f25" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M94 44 L104 28 L86 34 Z" fill="#fff7ed" stroke="#6b3f25" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="64" cy="72" rx="34" ry="30" fill="#ffffff" stroke="#6b3f25" stroke-width="5"/>
+  <circle cx="52" cy="68" r="6" fill="#3a2a24"/>
+  <circle cx="76" cy="68" r="6" fill="#3a2a24"/>
+  <path d="M60 78 Q64 82 68 78" fill="none" stroke="#3a2a24" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 78 Q64 86 56 88" fill="none" stroke="#3a2a24" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 78 Q64 86 72 88" fill="none" stroke="#3a2a24" stroke-width="4" stroke-linecap="round"/>
+  <path d="M44 76 H26" stroke="#6f5a4f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M44 82 H24" stroke="#6f5a4f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M84 76 H102" stroke="#6f5a4f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M84 82 H104" stroke="#6f5a4f" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="46" cy="78" r="5" fill="#f2c6d0" opacity="0.75"/>
+  <circle cx="82" cy="78" r="5" fill="#f2c6d0" opacity="0.75"/>
+</svg>
